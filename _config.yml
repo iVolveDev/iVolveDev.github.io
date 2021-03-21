@@ -1,2 +1,5 @@
 theme: jekyll-theme-slate
 no_remote_theme: iVolveDev/website-theme-2021
+title: iVolve
+description: iVolve Corporate Website
+show_downloads: false
