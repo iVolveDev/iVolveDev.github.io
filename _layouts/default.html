@@ -1,42 +1,57 @@
----
----
+{% comment %}
 
-<!doctype html>
-<!--
-  Minimal Mistakes Jekyll Theme 4.22.0 by Michael Rose
-  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
-  Free for personal and commercial use under the MIT license
-  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
--->
-<html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js">
-  <head>
-    {% include head.html %}
-    {% include head/custom.html %}
-  </head>
+	Solid State by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
 
-  <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
-    {% include_cached skip-links.html %}
-    {% include_cached browser-upgrade.html %}
-    {% include_cached masthead.html %}
+	Name:
 
-    <div class="initial-content">
-      {{ content }}
-    </div>
+		Default layout
 
-    {% if site.search == true %}
-      <div class="search-content">
-        {% include_cached search/search_form.html %}
-      </div>
-    {% endif %}
+	Description:
 
-    <div id="footer" class="page__footer">
-      <footer>
-        {% include footer/custom.html %}
-        {% include_cached footer.html %}
-      </footer>
-    </div>
+		Basic HTML foundation for all pages.
 
-    {% include scripts.html %}
+	Example:
 
-  </body>
+		---
+		layout: default
+		---
+
+{% endcomment %}
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Untitled</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, use-scalable=no" />
+		<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+		<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="{{ site.baseurl }}/assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				{% include layout/header.html class=page.header_class %}
+
+				{% include layout/menu.html %}
+
+				{{ content }}
+
+				{% include layout/footer.html %}
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
+			<script src="{{ site.baseurl }}/assets/js/jquery.scrollex.min.js"></script>
+			<script src="{{ site.baseurl }}/assets/js/browser.min.js"></script>
+			<script src="{{ site.baseurl }}/assets/js/breakpoints.min.js"></script>
+			<script src="{{ site.baseurl }}/assets/js/util.js"></script>
+			<script src="{{ site.baseurl }}/assets/js/main.js"></script>
+
+	</body>
 </html>
